@@ -3,7 +3,9 @@ services:
   controller:
     container_name: controller
     hostname: controller
-    image: bobuhiro11/containerized-devstack-controller
+    build:
+      context: .
+      dockerfile: controller/Dockerfile
     privileged: true
     tty: true
     cgroup: host
@@ -22,7 +24,9 @@ services:
   compute-1:
     container_name: compute-1
     hostname: compute-1
-    image: bobuhiro11/containerized-devstack-compute-1
+    build:
+      context: .
+      dockerfile: compute/Dockerfile
     privileged: true
     tty: true
     cgroup: host
@@ -41,7 +45,9 @@ services:
   compute-2:
     container_name: compute-2
     hostname: compute-2
-    image: bobuhiro11/containerized-devstack-compute-2
+    build:
+      context: .
+      dockerfile: compute/Dockerfile
     privileged: true
     tty: true
     cgroup: host
